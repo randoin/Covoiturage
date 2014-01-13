@@ -1,0 +1,37 @@
+body
+{
+width : 50%;
+min-width : 960px;
+margin : auto;
+padding : 5px;
+word-wrap : break-word;
+font-family : Arial,serif;
+background-color : RGB(233,232,220);
+overflow: auto;
+}
+
+h1
+{
+font-size : xx-large;
+font-weight : bold;
+border : 1px black solid;
+border-radius : 10px;
+}
+
+h2
+{
+font-size : large;
+font-weight : bold ;
+}
+h3
+{
+font-size : large;
+}
+
+footer
+{
+color : black;
+border : 1px black solid;
+border-radius : 10px;
+text-align : center;
+}
