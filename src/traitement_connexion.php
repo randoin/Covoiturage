@@ -2,18 +2,22 @@
 	session_start();
 
 	$_SESSION["session"] = $_POST["ident"];
-	$_SESSION["password"] = $_POST["pass"];
+	$_SESSION["passe"] = $_POST["pass"];
 	$_SESSION["instance"] = "127.0.0.1/xe";
 
-	include("php_functions.php");
+	$conn = mysql_connect($_SESSION["instance"], $_SESSION["session"], $_SESSION["passe"]);
 
-	$conn = connect($_SESSION["session"], $_SESSION["password"], $_SESSION["instance"]);
+	if(!$conn){
+		die('Connexion impossible : ' . mysql_error());
+	}
+	echo 'Connecté correctement';
+	mysql_close($link);
 
 	if(!isset($_SESSION["session"])){
-		header("Location:index.php");
+		header("Location:connexion.php");
 	}
 
 	else{
-		header("Location:start_add_form.php");
+		header("Location:accueil.php");
 	}
  ?>
