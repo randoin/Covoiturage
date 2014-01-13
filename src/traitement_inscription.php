@@ -11,7 +11,7 @@
 				$valeurTestMail = "";
 			if(!isset($valeurTestMdp))
 				$valeurTestMdp = "";
-			if(!isset($valeurTestMdpConfirm))""
+			if(!isset($valeurTestMdpConfirm))
 				$valeurTestMdpConfirm = "";
 			if(!isset($valeurTestMajeur))
 				$valeurTestMajeur = "";
