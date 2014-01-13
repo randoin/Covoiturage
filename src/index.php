@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -8,11 +9,19 @@
 		<h1>Site de Covoiturage</h1>
 		<h2></h2>
 		
-		<fieldset>
-			<legend>Connexion</legend>
-			<a href="#">Se connecter</a><br>
-			<a href="#">S'inscrire</a><br>
-		</fieldset>
+		
+		<?php if(isset($_SESSION['id'])) echo "<!--";?>
+			<fieldset>
+				<?php include "connexion.php" ?>
+				<a href="inscription.php">S'inscrire</a><br>
+			</fieldset>
+		<?php if(isset($_SESSION['id'])) echo "-->"; else echo "<!--"?>
+		
+			<p>Vous êtes connectés</p>
+			
+		<?php if(!isset($_SESSION['id'])) echo "-->"; ?>
+			
+			
 	</body>
 	<footer>
 	<h5>A propos</h5>
