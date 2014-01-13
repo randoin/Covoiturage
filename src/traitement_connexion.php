@@ -16,11 +16,5 @@
 	mysql_free_result ($exec);
 	mysql_close();
 
-	if(!isset($_SESSION['id'])){
-		header("Location:connexion.php");
-	}
-
-	else{
-		header("Location:index.php");
-	}
+	header("Location:connexion.php");
  ?>
