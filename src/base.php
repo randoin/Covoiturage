@@ -6,5 +6,5 @@
 	}
 	echo 'Connecté correctement';
 
-	mysql_select_db('mlr2', $conn);
+	mysql_select_db('projet_agileb', $conn);
  ?>
