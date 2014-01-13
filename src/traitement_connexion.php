@@ -10,16 +10,13 @@
 
 	mysql_select_db('mlr2', $conn);
 
-	$sql = 'SELECT LOGIN, MOTDEPASSE FROM utilisateur';
+	$requete = 'SELECT LOGIN, MOTDEPASSE FROM utilisateur';
 
-	$req = mysql_query($sql) or die('Erreur SQL !<br />'.$sql.'<br />'.mysql_error());
+	$exec = mysql_query($requete) or die('Erreur SQL: '.$requete.' --- '.mysql_error());
 
-	while ($data = mysql_fetch_array($req)) {
-		echo($data['LOGIN']." : ".$_POST['ident']);
-		if ($data['LOGIN'] == $_POST['ident']){
-			if ($data['MOTDEPASSE'] == $_POST['pass']){
-				$_SESSION['id'] = $_POST['ident'];
-			}
+	while ($data = mysql_fetch_array($exec)){
+		if (($data['LOGIN'] == $_POST['ident']) && ($data['MOTDEPASSE'] == $_POST['pass'])){
+			$_SESSION['id'] = $_POST['ident'];
 		}
 	}
 
