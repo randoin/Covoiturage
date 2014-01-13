@@ -1,6 +1,5 @@
 ﻿
 	<?php include "header.php" ?>
-		<h2 align="center">Inscription</h2>
 		<?php
 
 
