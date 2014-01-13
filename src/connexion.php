@@ -1,9 +1,9 @@
 <?php
 	echo '<meta charset="UTF-8" />';
 ?>
-	<legend><h3>Connexion covoiturage</h3></legend>
+	<h3>Connexion</h3>
 	<form action='traitement_connexion.php' method='post'>
-	<p>Login : <input type='text' name='ident'/></p>
+	<p>Pseudo : <input type='text' name='ident'/></p>
 	<p>Mot de passe : <input type='password' name='pass'/></p>
 	<p><input type='submit' value='valider'/></p>
 

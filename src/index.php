@@ -5,7 +5,7 @@
 		<?php if(isset($_SESSION['id'])) echo "<!--";?>
 			<fieldset>
 				<?php include "connexion.php" ?>
-				<a href="inscription.php">S'inscrire</a><br>
+				<a href="inscription.php"><input type="button" value="pas encore inscrit ?"></a><br>
 			</fieldset>
 		<?php if(isset($_SESSION['id'])) echo "-->"; else echo "<!--"?>
 		

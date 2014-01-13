@@ -16,5 +16,9 @@
 	mysql_free_result ($exec);
 	mysql_close();
 
+<<<<<<< HEAD
+	header("Location:index.php");
+=======
 	header("Location:connexion.php");
+>>>>>>> adb9279f94378fe54d9e44e7c06dd03e88f92e9a
  ?>

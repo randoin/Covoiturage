@@ -1,5 +1,4 @@
-﻿
-	</body>
+﻿	</body>
 	<br>
 	<footer>
 		<h5>A propos</h5>
