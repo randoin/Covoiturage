@@ -8,8 +8,6 @@
 				$valeurTestPrenom = "";
 			if(!isset($valeurTestTel))
 				$valeurTestTel = "";
-			if(!isset($valeurTestlogin))
-				$valeurTestlogin = "";
 			if(!isset($valeurTestMail))
 				$valeurTestMail = "";
 			if(!isset($valeurTestMdp))
@@ -25,7 +23,7 @@
 			//on analyse l'enregistrement
 			if(isset($_POST['Ajouter'])){
 				//on test si les champs ont bien été rempli
-				if($_POST['nom'] != "" && $_POST['prenom'] != "" && $_POST['login'] != "" && $_POST['tel'] != "" && $_POST['mail'] != "" && $_POST['mdp'] != "" && $_POST['mdpConfirm'] != "" && isset($_POST['majeur'])){
+				if($_POST['nom'] != "" && $_POST['prenom'] != "" && $_POST['tel'] != "" && $_POST['mail'] != "" && $_POST['mdp'] != "" && $_POST['mdpConfirm'] != "" && isset($_POST['majeur'])){
 					//analyse de ce qui est envoyer
 					
 					if($_POST['mdp'] != $_POST['mdpConfirm']){
@@ -80,13 +78,6 @@
 					}
 					else{
 						$valeurPrenom = $_POST['prenom'];
-					}
-
-					if(empty($_POST['login'])){
-						$valeurTestlogin = "Veuillez entrer un login !";
-					}
-					else{
-						$valeurLogin = $_POST['login'];
 					}
 
 					if(empty($_POST['tel'])){
