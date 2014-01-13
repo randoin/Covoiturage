@@ -8,11 +8,20 @@
 		<h1>Site de Covoiturage</h1>
 		<h2></h2>
 		
-		<fieldset>
-			<legend>Connexion</legend>
-			<a href="#">Se connecter</a><br>
-			<a href="#">S'inscrire</a><br>
-		</fieldset>
+		
+		<?php if(false) echo "<!--";?>
+			<fieldset>
+			<legend><h3>Connexion</h3></legend>
+				<?php include "connexion.php" ?>
+				<a href="inscription.php">S'inscrire</a><br>
+			</fieldset>
+		<?php if(false) echo "-->"; else echo "<!--"?>
+		
+			<p>Vous êtes connectés</p>
+			
+		<?php if(!false) echo "-->"; ?>
+			
+			
 	</body>
 	<footer>
 	<h5>A propos</h5>
