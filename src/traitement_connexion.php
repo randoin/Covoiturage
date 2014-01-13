@@ -1,11 +1,7 @@
 <?php 
 	session_start();
 
-	$_SESSION["session"] = $_POST["ident"];
-	$_SESSION["passe"] = $_POST["pass"];
-	$_SESSION["instance"] = "127.0.0.1/xe";
-
-	$conn = mysql_connect($_SESSION["instance"], $_SESSION["session"], $_SESSION["passe"]);
+	$conn = mysql_connect("127.0.0.1/xe", "root", "");
 
 	if(!$conn){
 		die('Connexion impossible : ' . mysql_error());
@@ -13,11 +9,25 @@
 	echo 'Connecté correctement';
 	mysql_close($link);
 
-	if(!isset($_SESSION["session"])){
+	mysql_select_db('mlr2', $conn);
+
+	$sql = 'SELECT LOGIN, MOTDEPASSE FROM utilisateur';
+
+	$req = mysql_query($sql) or die('Erreur SQL !<br />'.$sql.'<br />'.mysql_error());
+
+	$data = mysql_fetch_array($req);
+
+	while ($data = mysql_fetch_array($req)) {
+		if ($data['LOGIN'] == $_POST['ident']) && ($data['MOTDEPASSE'] == $_POST['pass']){
+			$_SESSION['id'] = $_POST['ident'];
+		}
+	}
+
+	if(!isset($_SESSION['id'])){
 		header("Location:connexion.php");
 	}
 
 	else{
-		header("Location:accueil.php");
+		header("Location:index.php");
 	}
  ?>
