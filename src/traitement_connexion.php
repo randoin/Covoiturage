@@ -1,14 +1,7 @@
 <?php 
 	session_start();
 
-	$conn = mysql_connect("127.0.0.1", "root", "");
-
-	if(!$conn){
-		die('Connexion impossible : ' . mysql_error());
-	}
-	echo 'Connecté correctement';
-
-	mysql_select_db('mlr2', $conn);
+	include('base.php');
 
 	$requete = 'SELECT LOGIN, MOTDEPASSE FROM utilisateur';
 
