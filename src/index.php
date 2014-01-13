@@ -1,6 +1,5 @@
 <?php session_start(); ?>
 <?php include "header.php" ?>
-	<body>
 		<h1>Site de Covoiturage</h1>
 		<h2></h2>
 		<?php if(isset($_POST['deco'])){session_destroy(); header("location:index.php");}?>
