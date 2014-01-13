@@ -20,7 +20,7 @@
 		}
 	}
 
-	mysql_free_result ($req);
+	mysql_free_result ($exec);
 	mysql_close();
 
 	if(!isset($_SESSION['id'])){
