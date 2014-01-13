@@ -1,10 +1,5 @@
 <?php session_start(); ?>
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title>Covoiturage</title>
-	</head>
+<?php include "header.php" ?>
 	<body>
 		<h1>Site de Covoiturage</h1>
 		<h2></h2>
@@ -22,8 +17,4 @@
 		<?php if(!isset($_SESSION['id'])) echo "-->"; ?>
 			
 			
-	</body>
-	<footer>
-	<h5>A propos</h5>
-	</footer>
-</html>
+<?php include "footer.php" ?>
