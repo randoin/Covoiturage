@@ -42,7 +42,7 @@
 						$matr = $matr + 1;
 
 						//insertion
-						$sql = "INSERT INTO UTILISATEUR VALUES ($matr, '".$_POST['nom']."', '".$_POST['prenom']."', '".$_POST['mdp']."', '".$_POST['mail']."', '".$_POST['tel']."') ";
+						$sql = "INSERT INTO utilisateur VALUES ($matr, '".$_POST['nom']."', '".$_POST['prenom']."', '".$_POST['mdp']."', '".$_POST['mail']."', '".$_POST['tel']."') ";
 						//echo $sql;
 						mysql_query($sql);
 						//values($numCoureur,'".$nom."','".$prenom."','".$_POST['annee_naissance']."','".$_POST['annee_tour']."','".$_POST['pays']."',user, sysdate)";
