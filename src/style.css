@@ -8,19 +8,15 @@ body
 	font-family : Arial,serif;
 	background-color : RGB(233,232,220);
 	overflow: auto;
+	background-image : url('images/background.jpg');
 }
-
+	
 h1
 {
 	text-align: center;
 	color: #eeeeee;
 	background-color: #707070;
-}
-
-h1
-{
 	font-size : xx-large;
-	font-weight : bold;
 	border : 1px black solid;
 	border-radius : 10px;
 	box-shadow: 5px 5px 2px #555;
@@ -35,8 +31,8 @@ fieldset
 footer
 {
 	color : black;
+	background: green;
 	border : 1px black solid;
 	border-radius : 10px;
 	text-align : center;
-	box-shadow: 5px 5px 2px #555;
 }
