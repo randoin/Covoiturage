@@ -1,12 +1,12 @@
 -- -----------------------------------------------------------------------------
 --             Génération d'une base de données pour
 --                      Oracle Version 10g
---                        (13/1/2014 11:16:15)
+--                        (13/1/2014 11:57:42)
 -- -----------------------------------------------------------------------------
---      Nom de la base : MLR7
+--      Nom de la base : MLR8
 --      Projet : 
 --      Auteur : IUT DE CAEN
---      Date de dernière modification : 13/1/2014 11:16:06
+--      Date de dernière modification : 13/1/2014 11:57:37
 -- -----------------------------------------------------------------------------
 
 DROP TABLE UTILISATEUR CASCADE CONSTRAINTS;
@@ -25,7 +25,7 @@ DROP TABLE ETREPASSAGER CASCADE CONSTRAINTS;
 --       CREATION DE LA BASE 
 -- -----------------------------------------------------------------------------
 
-CREATE DATABASE MLR7;
+CREATE DATABASE MLR8;
 
 -- -----------------------------------------------------------------------------
 --       TABLE : UTILISATEUR
@@ -34,6 +34,7 @@ CREATE DATABASE MLR7;
 CREATE TABLE UTILISATEUR
    (
     MATRICULE CHAR(32)  NOT NULL,
+    NUMEROCOVOIT CHAR(32)  NOT NULL,
     NOM CHAR(32)  NULL,
     PRENOM CHAR(32)  NULL,
     LOGIN CHAR(32)  NULL,
@@ -42,6 +43,14 @@ CREATE TABLE UTILISATEUR
     NUMEROTEL CHAR(32)  NULL
 ,   CONSTRAINT PK_UTILISATEUR PRIMARY KEY (MATRICULE)  
    ) ;
+
+-- -----------------------------------------------------------------------------
+--       INDEX DE LA TABLE UTILISATEUR
+-- -----------------------------------------------------------------------------
+
+CREATE  INDEX I_FK_UTILISATEUR_COVOITURAGE
+     ON UTILISATEUR (NUMEROCOVOIT ASC)
+    ;
 
 -- -----------------------------------------------------------------------------
 --       TABLE : LIEU
@@ -88,7 +97,8 @@ CREATE TABLE COVOITURAGE
     IDENTIFIANTLIEU CHAR(32)  NOT NULL,
     IDENTIFIANTLIEU_ARRIVEE CHAR(32)  NOT NULL,
     PLACESDISPO CHAR(32)  NULL,
-    DATEDEPART CHAR(32)  NULL
+    DATEDEPART CHAR(32)  NULL,
+    MONTANTPARPLACE CHAR(32)  NULL
 ,   CONSTRAINT PK_COVOITURAGE PRIMARY KEY (NUMEROCOVOIT)  
    ) ;
 
@@ -159,6 +169,11 @@ CREATE  INDEX I_FK_ETREPASSAGER_UTILISATEUR
 --       CREATION DES REFERENCES DE TABLE
 -- -----------------------------------------------------------------------------
 
+
+ALTER TABLE UTILISATEUR ADD (
+     CONSTRAINT FK_UTILISATEUR_COVOITURAGE
+          FOREIGN KEY (NUMEROCOVOIT)
+               REFERENCES COVOITURAGE (NUMEROCOVOIT))   ;
 
 ALTER TABLE VEHICULE ADD (
      CONSTRAINT FK_VEHICULE_UTILISATEUR
