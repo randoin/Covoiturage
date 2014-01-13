@@ -31,8 +31,6 @@
 					
 					if($erreur != 1){
 						//requete insertion
-						session_start();
-
 						include('base.php');
 
 						$sql = 'SELECT max(MATRICULE) as "MAXI" FROM utilisateur';
