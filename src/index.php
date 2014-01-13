@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -9,17 +10,16 @@
 		<h2></h2>
 		
 		
-		<?php if(false) echo "<!--";?>
+		<?php if(isset($_SESSION['id'])) echo "<!--";?>
 			<fieldset>
-			<legend><h3>Connexion</h3></legend>
 				<?php include "connexion.php" ?>
 				<a href="inscription.php">S'inscrire</a><br>
 			</fieldset>
-		<?php if(false) echo "-->"; else echo "<!--"?>
+		<?php if(isset($_SESSION['id'])) echo "-->"; else echo "<!--"?>
 		
 			<p>Vous êtes connectés</p>
 			
-		<?php if(!false) echo "-->"; ?>
+		<?php if(!isset($_SESSION['id'])) echo "-->"; ?>
 			
 			
 	</body>
