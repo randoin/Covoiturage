@@ -1,7 +1,7 @@
 ﻿	</body>
 	<br>
 	<footer>
-		<h5>A propos</h5>
+		<a href="About.html">A propos</a><br>
 		<a href="CGU.html">Conditions générales d'utilisation</a>
 	</footer>
 </html>
