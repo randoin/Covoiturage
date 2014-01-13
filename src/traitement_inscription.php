@@ -1,4 +1,4 @@
-
+﻿
 		<?php
 			//initialisation des variables
 			if(!isset($valeurTestNom))
@@ -53,7 +53,7 @@
 						?>
 						<SCRIPT LANGUAGE="JavaScript">
 						<!--
-						alert('Vous êtes maintenant membre !');
+						alert('Vous etes maintenant membre !');
 						-->
 						</SCRIPT> 
 						<?php
