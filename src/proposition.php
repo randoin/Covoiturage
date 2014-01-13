@@ -1,23 +1,25 @@
 
 	<?php include "header.php" ?>
-		<h2 align="center">Proposer un covoiturage</h2>
 		<?php
 			if(!isset($valeurTestDepart))
 				$valeurTestDepart = "";
-			if(!isset($valeurTestArriver))
-				$valeurTestArriver = "";
+			if(!isset($valeurTestArrivee))
+				$valeurTestArrivee = "";
 			if(!isset($valeurTestDate))
 				$valeurTestDate = "";
-			if(!isset($valeurNbPlace))
+			if(!isset($valeurTestNbPlace))
 				$valeurTestNbPlace = "";
 			if(!isset($valeurTestPrix))
 				$valeurTestPrix = "";
+			if(!isset($valeurTestPlaque))
+				$valeurTestPlaque = "";
 		
 		?>
 		
 		<form name="formProposCovoiturage" action="traitement_proposition.php" method="post" >
-			<div align="center" style="margin-left:10%; margin-right:10%">
+			
 				<fieldset >
+					<div align="center" style="margin-left:10%; margin-right:10%">
 					<legend>Proposition de covoiturage</legend>
 					<table border=0 cellpadding=10>
 						<tr>
@@ -33,13 +35,13 @@
 						</tr>
 						<tr>
 							<td>
-								Ville d'arriver * :
+								Ville d'arrivée * :
 							</td>
 							<td>
-								<input type="text" name="arriver" size=32 maxlength=30 value="<?php if(isset($valeurArriver)) echo $valeurArriver; ?>" placeholder="Entrez une ville d'arriver">
+								<input type="text" name="arrivee" size=32 maxlength=30 value="<?php if(isset($valeurArrivee)) echo $valeurArrivee; ?>" placeholder="Entrez une ville d'arriver">
 							</td>
 							<td>
-								<?php echo $valeurTestArriver; ?>
+								<?php echo $valeurTestArrivee; ?>
 							</td>
 						</tr>
 						<tr>
@@ -47,10 +49,21 @@
 								Date de départ * :
 							</td>
 							<td>
-								<input type="date" name="dateDepart" value="<?php if(isset($valeurDate)) echo $valeurDate; ?>" placeholder="dd/mm/yyyy">
+								<input type="text" name="dateDepart" value="<?php if(isset($valeurDate)) echo $valeurDate; ?>" placeholder="jj/mm/aaaa">
 							</td>
 							<td>
 								<?php echo $valeurTestDate; ?>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Plaque d'immatriculation * :
+							</td>
+							<td>
+								<input type="text" name="plaque" size=32 maxlength=30 value="<?php if(isset($valeurPlaque)) echo $valeurPlaque; ?>" placeholder="Entrez une plaque d'immatriculation">
+							</td>
+							<td>
+								<?php echo $valeurTestPlaque; ?>
 							</td>
 						</tr>
 						<tr>
@@ -84,9 +97,9 @@
 							</td>
 						</tr>
 					</table>
-					
+					</div>
 				</fieldset>
-			</div>
+			
 		</form>
 		
 <?php include "footer.php" ?>
