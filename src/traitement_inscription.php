@@ -28,16 +28,26 @@
 				if($_POST['nom'] != "" && $_POST['prenom'] != "" && $_POST['login'] != "" && $_POST['tel'] != "" && $_POST['mail'] != "" && $_POST['mdp'] != "" && $_POST['mdpConfirm'] != "" && isset($_POST['majeur'])){
 					//analyse de ce qui est envoyer
 					
-					if($_POST['mdp'] != )
-					
-						
-					$erreur = 1;
+					if($_POST['mdp'] != $_POST['mdpConfirm']){
+						$erreur = 1;
+					}
 					
 					if($erreur != 1){
 						//requete insertion
-						$login = 'copie_tdf';
-						$mdp = 'copie_tdf';
-						$instance = 'xe';
+						session_start();
+
+						$conn = mysql_connect("127.0.0.1/xe", "root", "");
+
+						if(!$conn){
+							die('Connexion impossible : ' . mysql_error());
+						}
+
+						mysql_close($link);
+
+						mysql_select_db('mlr2', $conn);
+
+						$sql = 'SELECT max(MATRICULE) FROM utilisateur';
+						
 						
 
 						//on recupert dabors le max de n_coureur
