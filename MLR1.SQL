@@ -1,29 +1,31 @@
 -- -----------------------------------------------------------------------------
 --             Génération d'une base de données pour
 --                      Oracle Version 10g
---                        (13/1/2014 10:33:22)
+--                        (13/1/2014 11:16:15)
 -- -----------------------------------------------------------------------------
---      Nom de la base : MLR2
+--      Nom de la base : MLR7
 --      Projet : 
 --      Auteur : IUT DE CAEN
---      Date de dernière modification : 13/1/2014 10:33:14
+--      Date de dernière modification : 13/1/2014 11:16:06
 -- -----------------------------------------------------------------------------
 
 DROP TABLE UTILISATEUR CASCADE CONSTRAINTS;
 
 DROP TABLE LIEU CASCADE CONSTRAINTS;
 
+DROP TABLE VEHICULE CASCADE CONSTRAINTS;
+
 DROP TABLE COVOITURAGE CASCADE CONSTRAINTS;
 
-DROP TABLE ETREPASSAGER CASCADE CONSTRAINTS;
-
 DROP TABLE PASSERPAR CASCADE CONSTRAINTS;
+
+DROP TABLE ETREPASSAGER CASCADE CONSTRAINTS;
 
 -- -----------------------------------------------------------------------------
 --       CREATION DE LA BASE 
 -- -----------------------------------------------------------------------------
 
-CREATE DATABASE MLR2;
+CREATE DATABASE MLR7;
 
 -- -----------------------------------------------------------------------------
 --       TABLE : UTILISATEUR
@@ -36,7 +38,8 @@ CREATE TABLE UTILISATEUR
     PRENOM CHAR(32)  NULL,
     LOGIN CHAR(32)  NULL,
     MOTDEPASSE CHAR(32)  NULL,
-    ADRESSEMAIL CHAR(32)  NULL
+    ADRESSEMAIL CHAR(32)  NULL,
+    NUMEROTEL CHAR(32)  NULL
 ,   CONSTRAINT PK_UTILISATEUR PRIMARY KEY (MATRICULE)  
    ) ;
 
@@ -52,13 +55,36 @@ CREATE TABLE LIEU
    ) ;
 
 -- -----------------------------------------------------------------------------
+--       TABLE : VEHICULE
+-- -----------------------------------------------------------------------------
+
+CREATE TABLE VEHICULE
+   (
+    PLAQUEIMMATRICULATION CHAR(32)  NOT NULL,
+    MATRICULE CHAR(32)  NOT NULL,
+    MODELE CHAR(32)  NULL,
+    TYPE CHAR(32)  NULL,
+    COULEUR CHAR(32)  NULL,
+    NIVEAUCONFORT CHAR(32)  NULL
+,   CONSTRAINT PK_VEHICULE PRIMARY KEY (PLAQUEIMMATRICULATION)  
+   ) ;
+
+-- -----------------------------------------------------------------------------
+--       INDEX DE LA TABLE VEHICULE
+-- -----------------------------------------------------------------------------
+
+CREATE  INDEX I_FK_VEHICULE_UTILISATEUR
+     ON VEHICULE (MATRICULE ASC)
+    ;
+
+-- -----------------------------------------------------------------------------
 --       TABLE : COVOITURAGE
 -- -----------------------------------------------------------------------------
 
 CREATE TABLE COVOITURAGE
    (
     NUMEROCOVOIT CHAR(32)  NOT NULL,
-    MATRICULE CHAR(32)  NOT NULL,
+    PLAQUEIMMATRICULATION CHAR(32)  NOT NULL,
     IDENTIFIANTLIEU CHAR(32)  NOT NULL,
     IDENTIFIANTLIEU_ARRIVEE CHAR(32)  NOT NULL,
     PLACESDISPO CHAR(32)  NULL,
@@ -70,8 +96,8 @@ CREATE TABLE COVOITURAGE
 --       INDEX DE LA TABLE COVOITURAGE
 -- -----------------------------------------------------------------------------
 
-CREATE  INDEX I_FK_COVOITURAGE_UTILISATEUR
-     ON COVOITURAGE (MATRICULE ASC)
+CREATE  INDEX I_FK_COVOITURAGE_VEHICULE
+     ON COVOITURAGE (PLAQUEIMMATRICULATION ASC)
     ;
 
 CREATE  INDEX I_FK_COVOITURAGE_LIEU
@@ -80,29 +106,6 @@ CREATE  INDEX I_FK_COVOITURAGE_LIEU
 
 CREATE  INDEX I_FK_COVOITURAGE_LIEU1
      ON COVOITURAGE (IDENTIFIANTLIEU_ARRIVEE ASC)
-    ;
-
--- -----------------------------------------------------------------------------
---       TABLE : ETREPASSAGER
--- -----------------------------------------------------------------------------
-
-CREATE TABLE ETREPASSAGER
-   (
-    MATRICULE CHAR(32)  NOT NULL,
-    NUMEROCOVOIT CHAR(32)  NOT NULL
-,   CONSTRAINT PK_ETREPASSAGER PRIMARY KEY (MATRICULE, NUMEROCOVOIT)  
-   ) ;
-
--- -----------------------------------------------------------------------------
---       INDEX DE LA TABLE ETREPASSAGER
--- -----------------------------------------------------------------------------
-
-CREATE  INDEX I_FK_ETREPASSAGER_UTILISATEUR
-     ON ETREPASSAGER (MATRICULE ASC)
-    ;
-
-CREATE  INDEX I_FK_ETREPASSAGER_COVOITURAGE
-     ON ETREPASSAGER (NUMEROCOVOIT ASC)
     ;
 
 -- -----------------------------------------------------------------------------
@@ -128,16 +131,44 @@ CREATE  INDEX I_FK_PASSERPAR_LIEU
      ON PASSERPAR (IDENTIFIANTLIEU ASC)
     ;
 
+-- -----------------------------------------------------------------------------
+--       TABLE : ETREPASSAGER
+-- -----------------------------------------------------------------------------
+
+CREATE TABLE ETREPASSAGER
+   (
+    NUMEROCOVOIT CHAR(32)  NOT NULL,
+    MATRICULE CHAR(32)  NOT NULL
+,   CONSTRAINT PK_ETREPASSAGER PRIMARY KEY (NUMEROCOVOIT, MATRICULE)  
+   ) ;
+
+-- -----------------------------------------------------------------------------
+--       INDEX DE LA TABLE ETREPASSAGER
+-- -----------------------------------------------------------------------------
+
+CREATE  INDEX I_FK_ETREPASSAGER_COVOITURAGE
+     ON ETREPASSAGER (NUMEROCOVOIT ASC)
+    ;
+
+CREATE  INDEX I_FK_ETREPASSAGER_UTILISATEUR
+     ON ETREPASSAGER (MATRICULE ASC)
+    ;
+
 
 -- -----------------------------------------------------------------------------
 --       CREATION DES REFERENCES DE TABLE
 -- -----------------------------------------------------------------------------
 
 
-ALTER TABLE COVOITURAGE ADD (
-     CONSTRAINT FK_COVOITURAGE_UTILISATEUR
+ALTER TABLE VEHICULE ADD (
+     CONSTRAINT FK_VEHICULE_UTILISATEUR
           FOREIGN KEY (MATRICULE)
                REFERENCES UTILISATEUR (MATRICULE))   ;
+
+ALTER TABLE COVOITURAGE ADD (
+     CONSTRAINT FK_COVOITURAGE_VEHICULE
+          FOREIGN KEY (PLAQUEIMMATRICULATION)
+               REFERENCES VEHICULE (PLAQUEIMMATRICULATION))   ;
 
 ALTER TABLE COVOITURAGE ADD (
      CONSTRAINT FK_COVOITURAGE_LIEU
@@ -149,16 +180,6 @@ ALTER TABLE COVOITURAGE ADD (
           FOREIGN KEY (IDENTIFIANTLIEU_ARRIVEE)
                REFERENCES LIEU (IDENTIFIANTLIEU))   ;
 
-ALTER TABLE ETREPASSAGER ADD (
-     CONSTRAINT FK_ETREPASSAGER_UTILISATEUR
-          FOREIGN KEY (MATRICULE)
-               REFERENCES UTILISATEUR (MATRICULE))   ;
-
-ALTER TABLE ETREPASSAGER ADD (
-     CONSTRAINT FK_ETREPASSAGER_COVOITURAGE
-          FOREIGN KEY (NUMEROCOVOIT)
-               REFERENCES COVOITURAGE (NUMEROCOVOIT))   ;
-
 ALTER TABLE PASSERPAR ADD (
      CONSTRAINT FK_PASSERPAR_COVOITURAGE
           FOREIGN KEY (NUMEROCOVOIT)
@@ -168,6 +189,16 @@ ALTER TABLE PASSERPAR ADD (
      CONSTRAINT FK_PASSERPAR_LIEU
           FOREIGN KEY (IDENTIFIANTLIEU)
                REFERENCES LIEU (IDENTIFIANTLIEU))   ;
+
+ALTER TABLE ETREPASSAGER ADD (
+     CONSTRAINT FK_ETREPASSAGER_COVOITURAGE
+          FOREIGN KEY (NUMEROCOVOIT)
+               REFERENCES COVOITURAGE (NUMEROCOVOIT))   ;
+
+ALTER TABLE ETREPASSAGER ADD (
+     CONSTRAINT FK_ETREPASSAGER_UTILISATEUR
+          FOREIGN KEY (MATRICULE)
+               REFERENCES UTILISATEUR (MATRICULE))   ;
 
 
 -- -----------------------------------------------------------------------------
