@@ -83,18 +83,18 @@ CREATE  INDEX I_FK_COVOITURAGE_LIEU1
     ;
 
 -- -----------------------------------------------------------------------------
---       TABLE : ÊTRE_PASSAGER
+--       TABLE : ETREPASSAGER
 -- -----------------------------------------------------------------------------
 
 CREATE TABLE ETREPASSAGER
    (
     MATRICULE CHAR(32)  NOT NULL,
     NUMEROCOVOIT CHAR(32)  NOT NULL
-,   CONSTRAINT PK_ÊTRE_PASSAGER PRIMARY KEY (MATRICULE, NUMEROCOVOIT)  
+,   CONSTRAINT PK_ETREPASSAGER PRIMARY KEY (MATRICULE, NUMEROCOVOIT)  
    ) ;
 
 -- -----------------------------------------------------------------------------
---       INDEX DE LA TABLE ÊTRE_PASSAGER
+--       INDEX DE LA TABLE ETREPASSAGER
 -- -----------------------------------------------------------------------------
 
 CREATE  INDEX I_FK_ETREPASSAGER_UTILISATEUR
