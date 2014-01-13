@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: localhost
--- Généré le : Lun 13 Janvier 2014 à 15:17
+-- Généré le : Lun 13 Janvier 2014 à 15:21
 -- Version du serveur: 5.1.63
 -- Version de PHP: 5.3.3-7+squeeze15
 
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `covoiturage` (
   `IDENTIFIANTLIEU` char(32) COLLATE utf8_unicode_ci NOT NULL,
   `IDENTIFIANTLIEU_ARRIVEE` char(32) COLLATE utf8_unicode_ci NOT NULL,
   `PLACESDISPO` int(100) DEFAULT NULL,
-  `DATEDEPART` char(32) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `DATEDEPART` date DEFAULT NULL,
   PRIMARY KEY (`NUMEROCOVOIT`),
   KEY `I_FK_COVOITURAGE_VEHICULE` (`PLAQUEIMMATRICULATION`),
   KEY `I_FK_COVOITURAGE_LIEU` (`IDENTIFIANTLIEU`),
