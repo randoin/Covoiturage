@@ -6,4 +6,4 @@
 		<title>Covoiturage</title>
 	</head>
 	<body>
-		<h1><img src="images/ban.gif"></h1>
+		<h1><img src="images/ban.png"></h1>
