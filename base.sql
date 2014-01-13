@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: localhost
--- Généré le : Lun 13 Janvier 2014 à 15:31
+-- Généré le : Lun 13 Janvier 2014 à 16:01
 -- Version du serveur: 5.1.63
 -- Version de PHP: 5.3.3-7+squeeze15
 
@@ -45,6 +45,9 @@ CREATE TABLE IF NOT EXISTS `covoiturage` (
 -- Contenu de la table `covoiturage`
 --
 
+INSERT INTO `covoiturage` (`NUMEROCOVOIT`, `MONTANT`, `PLAQUEIMMATRICULATION`, `IDENTIFIANTLIEU`, `IDENTIFIANTLIEU_ARRIVEE`, `PLACESDISPO`, `DATEDEPART`) VALUES
+(2, 20, '25002598', 'Caen', 'Paris', 2, '2014-01-16'),
+(3, 22, '33009898', 'Paris', 'Caen', 3, '2014-01-27');
 
 -- --------------------------------------------------------
 
@@ -108,26 +111,6 @@ CREATE TABLE IF NOT EXISTS `etrepassager` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `generercode`
---
-
-CREATE TABLE IF NOT EXISTS `generercode` (
-  `CODEPAIEMENT` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
-  `MATRICULECONDUCTEUR` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
-  `MATRICULEPASSAGER` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
-  `NUMEROCOVOIT` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
-  PRIMARY KEY (`MATRICULECONDUCTEUR`,`MATRICULEPASSAGER`,`NUMEROCOVOIT`),
-  UNIQUE KEY `CODEPAIEMENT` (`CODEPAIEMENT`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Contenu de la table `generercode`
---
-
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `lieu`
 --
 
@@ -173,13 +156,13 @@ INSERT INTO `utilisateur` (`MATRICULE`, `NOM`, `PRENOM`, `MOTDEPASSE`, `ADRESSEM
 
 CREATE TABLE IF NOT EXISTS `vehicule` (
   `PLAQUEIMMATRICULATION` char(32) COLLATE utf8_unicode_ci NOT NULL,
-  `MATRICULE` char(32) COLLATE utf8_unicode_ci NOT NULL,
+  `MATRICULE` int(10) NOT NULL,
   `MODELE` char(32) COLLATE utf8_unicode_ci DEFAULT NULL,
   `TYPE` char(32) COLLATE utf8_unicode_ci DEFAULT NULL,
   `COULEUR` char(32) COLLATE utf8_unicode_ci DEFAULT NULL,
   `NIVEAUCONFORT` char(32) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`PLAQUEIMMATRICULATION`),
-  KEY `I_FK_VEHICULE_UTILISATEUR` (`MATRICULE`)
+  KEY `I_FK_UTILISATEUR` (`MATRICULE`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
