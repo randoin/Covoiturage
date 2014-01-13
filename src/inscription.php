@@ -10,8 +10,6 @@
 				$valeurTestPrenom = "";
 			if(!isset($valeurTestTel))
 				$valeurTestTel = "";
-			if(!isset($valeurTestlogin))
-				$valeurTestlogin = "";
 			if(!isset($valeurTestMail))
 				$valeurTestMail = "";
 			if(!isset($valeurTestMdp))
@@ -48,17 +46,6 @@
 							</td>
 							<td>
 								<?php echo $valeurTestPrenom; ?>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								Login * :
-							</td>
-							<td>
-								<input type="text" name="login" size=32 maxlength=30 value="<?php if(isset($valeurLogin)) echo $valeurLogin; ?>" placeholder="Entrez un login">
-							</td>
-							<td>
-								<?php echo $valeurTestlogin; ?>
 							</td>
 						</tr>
 						<tr>
@@ -113,7 +100,7 @@
 								<input type='submit' name='Ajouter' value='Inscription' >
 							</td>
 							<td>
-								<input type='checkbox' name='majeur' value='isMajeur'> * Vous acceptez les CGU et<br> certifiez être majeur.
+								<input type='checkbox' name='majeur' value='isMajeur'> * Vous acceptez les <a href="CGU.html">CGU</a> et<br> certifiez être majeur.
 							</td>
 							<td>
 								<?php echo $valeurTestMajeur; ?>
