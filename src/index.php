@@ -10,6 +10,8 @@
 		<?php if(isset($_SESSION['id'])) echo "-->"; else echo "<!--"?>
 		
 			<p>Vous êtes connecté</p>
+			<a href="recherche.php"><input type="button" value="Rechercher un covoiturage"></a><br>
+			<a href="proposition.php"><input type="button" value="Proposer un covoiturage"></a>
 			<form action='index.php' method='post'>
 				<input type="submit" name="deco" value="se déconnecter">
 			</form>

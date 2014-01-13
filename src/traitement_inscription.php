@@ -1,5 +1,4 @@
-
-	<!-- FORMULAIRE D'AJOUT DE COUREUR -->
+﻿
 		<?php
 			//initialisation des variables
 			if(!isset($valeurTestNom))
@@ -32,8 +31,6 @@
 					
 					if($erreur != 1){
 						//requete insertion
-						session_start();
-
 						include('base.php');
 
 						$sql = 'SELECT max(MATRICULE) as "MAXI" FROM utilisateur';
@@ -41,18 +38,24 @@
 						$res1=mysql_query($sql);
 						$matr=mysql_result($res1,0,"MAXI");
 
-						echo $matr;
+						//echo $matr;
 						$matr = $matr + 1;
 
 						//insertion
-
+						$sql = "INSERT INTO UTILISATEUR VALUES ($matr, '".$_POST['nom']."', '".$_POST['prenom']."','".$_POST['mail']."', '".$_POST['mdp']."', '".$_POST['mdpConfirm']."','".$_POST['tel']."') ";
+						//echo $sql;
+						mysql_query($sql);
+						//values($numCoureur,'".$nom."','".$prenom."','".$_POST['annee_naissance']."','".$_POST['annee_tour']."','".$_POST['pays']."',user, sysdate)";
 
 						mysql_close();
-						$valeurTestAjout = "Coureur correctement ajouter !";
-						
-						//on reinitialise a 0 les valeurs du formulaire :
-						$valeurNom = "";
-						$valeurPrenom = "";
+						?>
+						<SCRIPT LANGUAGE="JavaScript">
+						<!--
+						alert('Vous etes maintenant membre !');
+						-->
+						</SCRIPT> 
+						<?php
+						include ("index.php");
 						
 						
 					}
