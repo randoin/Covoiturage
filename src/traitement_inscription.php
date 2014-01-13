@@ -36,50 +36,34 @@
 						//requete insertion
 						session_start();
 
-						$conn = mysql_connect("127.0.0.1/xe", "root", "");
+						$conn = mysql_connect("127.0.0.1", "root", "");
 
 						if(!$conn){
 							die('Connexion impossible : ' . mysql_error());
 						}
 
-						mysql_close($link);
 
 						mysql_select_db('mlr2', $conn);
 
-						$sql = 'SELECT max(MATRICULE) FROM utilisateur';
+						$sql = 'SELECT max(MATRICULE) as "MAXI" FROM utilisateur';
 						
-						
+						$res1=mysql_query($sql);
+						$matr=mysql_result($res1,0,"MAXI");
 
-						//on recupert dabors le max de n_coureur
-						$conn = OuvrirConnexion($login, $mdp,$instance);
-						$maxNCoureur = preparerRequete($conn, "SELECT max(n_coureur) as maxi from tdf_coureur");
-						$maxNcour = executerRequete($maxNCoureur);
-						
-						//on cree un tableau
-						$maxNumArray = array();
-						
-						//on y met le resultat de la requete
-						oci_fetch_all($maxNCoureur, $maxNumArray);
-						
-						//on recupert le resultat de la requete et on lui donne la valeur +5
-						$numCoureur = $maxNumArray['MAXI'][0];
-						$numCoureur = $numCoureur+5;
-						
-						//on fait l'include
-						$req = "INSERT INTO tdf_coureur(n_coureur, nom, prenom, annee_naissance, annee_tdf, code_tdf,compte_oracle, date_insert) values($numCoureur,'".$nom."','".$prenom."','".$_POST['annee_naissance']."','".$_POST['annee_tour']."','".$_POST['pays']."',user, sysdate)";
-						$cur = preparerRequete($conn, $req);
-						$tab = executerRequete($cur);
-						oci_commit($conn);
+						echo $matr;
+						$matr = $matr + 1;
+
+						//insertion
+
+
+						mysql_close();
 						$valeurTestAjout = "Coureur correctement ajouter !";
 						
 						//on reinitialise a 0 les valeurs du formulaire :
 						$valeurNom = "";
 						$valeurPrenom = "";
-						$valeurAnnee = "";
-						$valeurParticipation = "";
 						
 						
-						FermerConnexion($conn);
 					}
 				}
 				else{
