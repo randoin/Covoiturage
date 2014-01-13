@@ -22,8 +22,9 @@
 		?>
 		
 		<form name="formInscription" action="traitement_inscription.php" method="post" >
-			<div align="center" style="margin-left:10%; margin-right:10%">
+			
 				<fieldset >
+					<div align="center" style="margin-left:10%; margin-right:10%">
 					<legend>Inscription</legend>
 					<table border=0 cellpadding=10>
 						<tr>
@@ -107,9 +108,9 @@
 							</td>
 						</tr>
 					</table>
-					
+					</div>
 				</fieldset>
-			</div>
+			
 		</form>
 		
 <?php include "footer.php" ?>
