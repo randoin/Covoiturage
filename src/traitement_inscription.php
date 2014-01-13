@@ -36,14 +36,7 @@
 						//requete insertion
 						session_start();
 
-						$conn = mysql_connect("127.0.0.1", "root", "");
-
-						if(!$conn){
-							die('Connexion impossible : ' . mysql_error());
-						}
-
-
-						mysql_select_db('mlr2', $conn);
+						include('base.php');
 
 						$sql = 'SELECT max(MATRICULE) as "MAXI" FROM utilisateur';
 						

@@ -1,12 +1,9 @@
-﻿<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html;">
-		<meta charset="utf-8">
-		<title>Inscription d'un covoitureur</title>
-	</head>
-	<body>
+﻿
+	<?php include "header.php" ?>
 		<h2 align="center">Inscription</h2>
 		<?php
+
+
 		if(!isset($valeurTestNom))
 				$valeurTestNom = "";
 			if(!isset($valeurTestPrenom))
@@ -27,7 +24,7 @@
 		?>
 		
 		<form name="formInscription" action="traitement_inscription.php" method="post" >
-			<div align="center" style="margin-left:20%; margin-right:20%">
+			<div align="center" style="margin-left:10%; margin-right:10%">
 				<fieldset >
 					<legend>Inscription</legend>
 					<table border=0 cellpadding=10>
@@ -128,5 +125,4 @@
 			</div>
 		</form>
 		
-	</body>
-</html>
+<?php include "footer.php" ?>
