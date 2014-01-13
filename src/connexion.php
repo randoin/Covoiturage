@@ -3,8 +3,8 @@
 ?>
 	<h3>Connexion</h3>
 	<form action='traitement_connexion.php' method='post'>
-	<p>Pseudo : <input type='text' name='ident'/></p>
-	<p>Mot de passe : <input type='password' name='pass'/></p>
+	<p>Email : <input type='text' name='ident' placeholder='Email'/></p>
+	<p>Mot de passe : <input type='password' name='pass' placeholder='Mot de passe'/></p>
 	<p><input type='submit' value='valider'/></p>
 
 </form>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: localhost
--- Généré le : Lun 13 Janvier 2014 à 15:21
+-- Généré le : Lun 13 Janvier 2014 à 15:31
 -- Version du serveur: 5.1.63
 -- Version de PHP: 5.3.3-7+squeeze15
 
@@ -55,6 +55,7 @@ CREATE TABLE IF NOT EXISTS `covoiturage` (
 CREATE TABLE IF NOT EXISTS `demandercovoiturage` (
   `NUMEROCOVOIT` char(32) COLLATE utf8_unicode_ci NOT NULL,
   `MATRICULE` char(32) COLLATE utf8_unicode_ci NOT NULL,
+  `VALIDE` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`NUMEROCOVOIT`,`MATRICULE`),
   KEY `I_FK_ETREPASSAGER_COVOITURAGE` (`NUMEROCOVOIT`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -151,7 +152,6 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `MATRICULE` int(100) NOT NULL,
   `NOM` char(32) COLLATE utf8_unicode_ci DEFAULT NULL,
   `PRENOM` char(32) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `LOGIN` char(32) COLLATE utf8_unicode_ci DEFAULT NULL,
   `MOTDEPASSE` char(32) COLLATE utf8_unicode_ci DEFAULT NULL,
   `ADRESSEMAIL` char(32) COLLATE utf8_unicode_ci DEFAULT NULL,
   `NUMEROTEL` char(10) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -162,8 +162,8 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
 -- Contenu de la table `utilisateur`
 --
 
-INSERT INTO `utilisateur` (`MATRICULE`, `NOM`, `PRENOM`, `LOGIN`, `MOTDEPASSE`, `ADRESSEMAIL`, `NUMEROTEL`) VALUES
-(0, 'lucas', 'boutrot', 'thornydre', 'john', 'thornydre@gmail.com', '0625478935');
+INSERT INTO `utilisateur` (`MATRICULE`, `NOM`, `PRENOM`, `MOTDEPASSE`, `ADRESSEMAIL`, `NUMEROTEL`) VALUES
+(0, 'lucas', 'boutrot', 'john', 'thornydre@gmail.com', '0625478935');
 
 -- --------------------------------------------------------
 
