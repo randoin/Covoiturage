@@ -100,7 +100,7 @@
 								<input type='submit' name='Ajouter' value='Inscription' >
 							</td>
 							<td>
-								<input type='checkbox' name='majeur' value='isMajeur'> * Vous acceptez les <a href="CGU.html">CGU</a> et<br> certifiez être majeur.
+								<input type='checkbox' name='majeur' value='isMajeur'> * Vous acceptez les conditions générales et certifiez être majeur.
 							</td>
 							<td>
 								<?php echo $valeurTestMajeur; ?>
