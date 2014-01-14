@@ -50,7 +50,7 @@
 
 
 						mysql_close();
-						include ("index.php");
+						header("Location:index.php");
 						
 						
 					}
@@ -99,7 +99,7 @@
 						$valeurPrix = $_POST['prix'];
 					}
 					
-					include ("proposition.php");
+					header("Location:proposition.php");
 				}
 			}
 

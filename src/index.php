@@ -1,22 +1,27 @@
 <?php session_start(); ?>
 
-<?php include "header.php" ?>
+<?php 
+	include("header.php");
+	include("base.php");
+ ?>
 
 		<?php if(isset($_POST['deco'])){session_destroy(); header("location:index.php");}?>
 		
 		<?php if(isset($_SESSION['id'])) echo "<!--";?>
 			<fieldset>
-				<?php include "connexion.php" ?>
+				<?php include("connexion.php"); ?>
 				<a href="inscription.php"><input type="button" value="pas encore inscrit ?"></a><br>
 			</fieldset>
 		<?php if(isset($_SESSION['id'])) echo "-->"; else echo "<!--"?>
 			<fieldset>
-			<p> bonjour 
+			<p>
 			<?php 
 				if(isset($_SESSION['id'])){
-					$req = mysql_query("select nom,prenom from utilisateur where adressemail = '".$_SESSION['id']."'");
-					$rep = mysql_fetch_array();
-					echo $rep['nom']." ".$rep['prenom'];
+					$requete = "SELECT NOM, PRENOM FROM utilisateur WHERE ADRESSEMAIL = '".$_SESSION["id"]."'";
+					$exec = mysql_query($requete) or die('Erreur SQL: '.$requete.' --- '.mysql_error());
+					while($data = mysql_fetch_array($exec)){
+						echo "Bonjour ". ucfirst($data['NOM'])." ".ucfirst($data['PRENOM']).", soyez le bienvenu sur Eco'voiturage !<br/><br/>Choisissez une action à effectuer ci-dessous :";
+					}
 				}
 			?>
 			</p>
