@@ -27,6 +27,11 @@
 					
 					if($_POST['mdp'] != $_POST['mdpConfirm']){
 						$erreur = 1;
+						$valeurTestMdp = "Veuillez entrer un mot de passe différent !";
+						$valeurNom = $_POST['nom'];
+						$valeurPrenom = $_POST['prenom'];
+						$valeurTel = $_POST['tel'];
+						$valeurMail = $_POST['mail'];
 					}
 					
 					if($erreur != 1){
@@ -58,6 +63,8 @@
 						include ("index.php");
 						
 						
+					}else{
+						include ("inscription.php");
 					}
 				}
 				else{
