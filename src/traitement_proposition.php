@@ -27,7 +27,6 @@
 					
 					if($erreur != 1){
 						//requete insertion
-						session_start();
 
 						include('base.php');
 
@@ -44,7 +43,7 @@
 						$horaire=$_POST['heureDepart'].'h'.$_POST['minutesDepart'];
 
 						//insertion
-						$sql = "INSERT INTO covoiturage(NUMEROCOVOIT,IDENTIFIANTLIEU,IDENTIFIANTLIEU_ARRIVEE,DATEDEPART,HEUREDEPART,PLACESDISPO,MONTANT,PLAQUEIMMATRICULATION) VALUES ($matr, '".$_POST['depart']."', '".$_POST['arrivee']."','".$dateCo."','".$horaire."',$nbPlace, $prix,'".$_POST['plaque']."')";
+						$sql = "INSERT INTO covoiturage(CONDUCTEUR,NUMEROCOVOIT,IDENTIFIANTLIEU,IDENTIFIANTLIEU_ARRIVEE,DATEDEPART,HEUREDEPART,PLACESDISPO,MONTANT,PLAQUEIMMATRICULATION) VALUES (".$_SESSION['matricule'].", $matr, '".$_POST['depart']."', '".$_POST['arrivee']."','".$dateCo."','".$horraire."',$nbPlace, $prix,'".$_POST['plaque']."')";
 						//echo $sql;
 						mysql_query($sql) or die('Erreur SQL: '.$sql.' --- '.mysql_error());
 						//values($numCoureur,'".$nom."','".$prenom."','".$_POST['annee_naissance']."','".$_POST['annee_tour']."','".$_POST['pays']."',user, sysdate)";
