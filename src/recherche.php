@@ -9,9 +9,8 @@
 
 </form>
 
+
 </fieldset>
-
-
 <?php
 	echo '<meta charset="UTF-8" />';
 
@@ -32,12 +31,14 @@ if(isset($_POST['depart'])){
 		$exec = mysql_query($req) or die('Erreur SQL: '.$req.' --- '.mysql_error());
 		while ($data = mysql_fetch_array($exec)){
 			
-			echo "Veuillez cocher le covoiturage souhaité :<br>";
+			echo "<br><fieldset>";
+			echo "Liste des covoiturages disponibles :<br><br>";
 			echo "Départ de ".$data['IDENTIFIANTLIEU']." vers ".$data['IDENTIFIANTLIEU_ARRIVEE']."<br>";
 			echo  "Ce covoiturage est proposé le ".$data['DATEDEPART']."<bq>";
 			for ($i=0;$i<10;$i++){ echo "&nbsp";}
 			echo "<input type='radio' name='select' value='".$data['NUMEROCOVOIT']."'/></br>";
 			echo  "Il reste ".$data['PLACESDISPO']." places disponibles<br><br>";
+			echo "</fieldset>";
 		}
 		
 		echo "</br><input type='submit' value='Valider votre choix' name='validerCov'/>";
@@ -45,7 +46,6 @@ if(isset($_POST['depart'])){
 }
 
 ?>
-
 
 <?php include "footer.php" ?>
 
