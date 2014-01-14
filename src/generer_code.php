@@ -15,7 +15,7 @@
 
 	$requete = "INSERT INTO etrepassager VALUES()"
  ?>
-
+	<h1>Votre code passager</h1>
  	<fieldset>
 		<center>
 			<p>
