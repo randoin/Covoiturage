@@ -7,7 +7,7 @@
 		?>
 		
 		<form name="formDeclareCode" action="<?php $_SERVER['PHP_SELF'] ?>" method="post" >
-			<legend>Liste des covoiturages pour lesquels vous pouvez déclarer des codes</legend>
+			<h1>Liste des covoiturages pour lesquels vous pouvez déclarer des codes</h1>
 			<fieldset >
 				<div align="center" style="margin-left:10%; margin-right:10%">
 					<br>
