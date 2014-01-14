@@ -1,4 +1,3 @@
-
 	<?php include "header.php" ?>
 		<?php
 			if(!isset($valeurTestDepart))
@@ -19,10 +18,9 @@
 		?>
 		
 		<form name="formProposCovoiturage" action="traitement_proposition.php" method="post" >
-			
+			<h1>Proposition de covoiturage</h1>
 				<fieldset >
 					<div align="center" style="margin-left:10%; margin-right:10%">
-					<legend>Proposition de covoiturage</legend>
 					<table border=0 cellpadding=10>
 						<tr>
 							<td>
