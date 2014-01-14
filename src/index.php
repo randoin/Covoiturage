@@ -14,9 +14,8 @@
 			<p> bonjour 
 			<?php 
 				if(isset($_SESSION['id'])){
-					$db = new PDO('mysql:host=localhost;dbname=projet_agileb', 'root', '');
-					$req = $db->query("select nom,prenom from utilisateur where adressemail = '".$_SESSION['id']."'");
-					$rep = $req->fetch();
+					$req = mysql_query("select nom,prenom from utilisateur where adressemail = '".$_SESSION['id']."'");
+					$rep = mysql_fetch_array();
 					echo $rep['nom']." ".$rep['prenom'];
 				}
 			?>
