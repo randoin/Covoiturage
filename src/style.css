@@ -10,6 +10,8 @@ body
 	background-color : RGB(233,232,220);
 	overflow: auto;
 	background-image : url('images/background.jpg');
+	background-repeat: no-repeat;
+	background-attachment:fixed;
 }
 	
 h1
