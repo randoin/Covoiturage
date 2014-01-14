@@ -13,7 +13,9 @@
 		$code .= substr($caracteres, rand() % (strlen($caracteres)), 1);
 	}
 
-	$requete = "INSERT INTO etrepassager VALUES()"
+	$requete = "INSERT INTO etrepassager VALUES(".$_SESSION['numcovoit'].", ".$_SESSION['matricule'].", '".$code."', 0)";
+	mysql_query($requete);
+	mysql_close();
  ?>
 	<h1>Votre code passager</h1>
  	<fieldset>

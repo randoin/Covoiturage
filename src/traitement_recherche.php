@@ -3,9 +3,11 @@
 
 	include("base.php");
 
-	$requete2 = "INSERT INTO demandercovoiturage VALUES('".$_POST['select']."', ".$_SESSION['matricule'].", 0)";
-	mysql_query($requete2);
+	$requete = "INSERT INTO demandercovoiturage VALUES('".$_POST['select']."', ".$_SESSION['matricule'].", 0)";
+	mysql_query($requete);
 	mysql_close();
+
+	$_SESSION['numcovoit'] = $_POST['select'];
 
 	header("Location:payer.php");
  ?>
