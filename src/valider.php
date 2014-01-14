@@ -2,10 +2,11 @@
 
 <?php
 	if(isset($_POST['a'])){
-		mysql_query("UPDATE  `projet_agileb`.`demandercovoiturage` SET  `VALIDE` =  '1' WHERE  `demandercovoiturage`.`NUMEROCOVOIT` =".$_POST['covoit']." AND `demandercovoiturage`.`MATRICULE` =".$_POST['demande']);
+		mysql_query("UPDATE `projet_agileb`.`demandercovoiturage` SET  `VALIDE` =  '1' WHERE  `demandercovoiturage`.`NUMEROCOVOIT` =".$_POST['covoit']." AND `demandercovoiturage`.`MATRICULE` =".$_POST['demande']);
 	}
 	else if(isset($_POST['r'])){
 		mysql_query("DELETE FROM `projet_agileb`.`demandercovoiturage` WHERE `demandercovoiturage`.`NUMEROCOVOIT` = ".$_POST['covoit']." AND `demandercovoiturage`.`MATRICULE` = ".$_POST['demande']);
+		mysql_query("DELETE FROM `projet_agileb`.`etrepassager` WHERE  `etrepassager`.`NUMEROCOVOIT` = ".$_POST['covoit']." AND `etrepassager`.`MATRICULE` = ".$_POST['demande']);
 	}
 ?>
 
