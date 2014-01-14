@@ -15,7 +15,7 @@
 			<fieldset>
 			<p>
 			<?php 
-				echo "Bonjour ".ucfirst($_SESSION['prenom'])." ".ucfirst($_SESSION['nom']).", soyez le bienvenu sur Eco'voiturage !<br/><br/>Choisissez une action à effectuer ci-dessous :";
+				echo "Bonjour ".ucfirst($_SESSION['prenom']).", soyez le bienvenu sur Eco'voiturage !<br/><br/>Choisissez une action à effectuer ci-dessous :";
 			?>
 			</p>
 			<b>Vous êtes passager :</b><br/>
