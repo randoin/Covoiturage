@@ -14,10 +14,6 @@ create table covoiturage (
   KEY `I_FK_COVOITURAGE_LIEU1` (`IDENTIFIANTLIEU_ARRIVEE`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `covoiturage` (`NUMEROCOVOIT`, `MONTANT`, `PLAQUEIMMATRICULATION`, `IDENTIFIANTLIEU`, `IDENTIFIANTLIEU_ARRIVEE`, `PLACESDISPO`, `DATEDEPART`) VALUES
-(2, 0, 20, '25002598', 'Caen', 'Paris', 2, '2014-01-16', '10h50'),
-(3, 0, 22, '33009898', 'Paris', 'Caen', 3, '2014-01-27', '11h25');
-
 CREATE TABLE `demandercovoiturage` (
   `NUMEROCOVOIT` INT( 5 ) COLLATE utf8_unicode_ci NOT NULL,
   `MATRICULE` INT( 5 ) COLLATE utf8_unicode_ci NOT NULL,
@@ -60,9 +56,6 @@ CREATE TABLE `utilisateur` (
   `NUMEROTEL` char(10) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`MATRICULE`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
-INSERT INTO `utilisateur` (`MATRICULE`, `NOM`, `PRENOM`, `MOTDEPASSE`, `ADRESSEMAIL`, `NUMEROTEL`) VALUES
-(0, 'lucas', 'boutrot', 'john', 'thornydre@gmail.com', '0625478935');
 
 CREATE TABLE `vehicule` (
   `PLAQUEIMMATRICULATION` char(32) COLLATE utf8_unicode_ci NOT NULL,
