@@ -51,11 +51,10 @@ if(isset($_POST['depart'])){
 		while ($data = mysql_fetch_array($exec)){
 			echo "<fieldset>";
 			echo "Ce covoiturage est proposé par ".$data['PRENOM']." ".$data['NOM']." le ".$data['DATEDEPART'].".</br>";
-			echo "Départ de ".$data['IDENTIFIANTLIEU']." vers ".$data['IDENTIFIANTLIEU_ARRIVEE']." à ".$data['HEUREDEPART'].".";
-			for ($i=0;$i<100;$i++){ echo "&nbsp";}
-			echo "<input type='radio' name='select' value='".$data['NUMEROCOVOIT']."'/></br>";
+			echo "Départ de ".$data['IDENTIFIANTLIEU']." vers ".$data['IDENTIFIANTLIEU_ARRIVEE']." à ".$data['HEUREDEPART'].".<br/>";
 			echo "Le prix est de ".$data['MONTANT']."€.</br>";
-			echo "Il reste ".$data['PLACESDISPO']." places disponibles.<br><br>";
+			echo "Il reste ".$data['PLACESDISPO']." places disponibles.<br>";
+			echo "Choisir : <input type='radio' name='select' value='".$data['NUMEROCOVOIT']."'/></br>";
 			echo "</fieldset>";
 			$tmp++;
 			}
