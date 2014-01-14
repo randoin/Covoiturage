@@ -35,7 +35,10 @@ if(isset($_POST['depart'])){
 
 		$date = date("Y-m-d", strtotime($_POST['date']));
 		
-		$req = "SELECT NUMEROCOVOIT, MONTANT, PLAQUEIMMATRICULATION, IDENTIFIANTLIEU, IDENTIFIANTLIEU_ARRIVEE, PLACESDISPO, DATEDEPART FROM covoiturage WHERE identifiantlieu='";
+		
+
+
+		$req = "SELECT `NUMEROCOVOIT`, `MONTANT`, `IDENTIFIANTLIEU`, `IDENTIFIANTLIEU_ARRIVEE`, `PLACESDISPO`, `DATEDEPART`, `HEUREDEPART`,`NOM`,`PRENOM` FROM `covoiturage` join utilisateur on covoiturage.`CONDUCTEUR`=utilisateur.`MATRICULE` WHERE identifiantlieu='";
 		$req .= $depart;
 		$req .= "' AND identifiantlieu_arrivee='";
 		$req .= $arrivee;
@@ -46,11 +49,22 @@ if(isset($_POST['depart'])){
 		echo "<fieldset>Veuillez cocher le covoiturage souhaité :";
 		$tmp= 0;
 		while ($data = mysql_fetch_array($exec)){
+<<<<<<< HEAD
 			echo "Départ de ".$data['IDENTIFIANTLIEU']." vers ".$data['IDENTIFIANTLIEU_ARRIVEE']."<br>";
 			echo  "Ce covoiturage est proposé le ".$data['DATEDEPART']."<bq>";
 			for ($i=0;$i<10;$i++){ echo "&nbsp";}
 			echo "<input type='radio' name='select' value='".$data['NUMEROCOVOIT']."'/></br>";
 			echo  "Il reste ".$data['PLACESDISPO']." places disponibles<br><br>";
+=======
+			echo "<fieldset>";
+			echo "Ce covoiturage est proposé par ".$data['PRENOM']." ".$data['NOM']." le ".$data['DATEDEPART'].".</br>";
+			echo "Départ de ".$data['IDENTIFIANTLIEU']." vers ".$data['IDENTIFIANTLIEU_ARRIVEE']." à ".$data['HEUREDEPART'].".";
+			for ($i=0;$i<100;$i++){ echo "&nbsp";}
+			echo "<input type='radio' name='select' value='".$data['NUMEROCOVOIT']."'/></br>";
+			echo "Le prix est de ".$data['MONTANT']."€.</br>";
+			echo "Il reste ".$data['PLACESDISPO']." places disponibles.<br><br>";
+			echo "</fieldset>";
+>>>>>>> recherche covoit'
 			$tmp++;
 			}
 		if($tmp>0){echo "</br><input type='submit' value='Valider votre choix' name='validerCov'/>";}
