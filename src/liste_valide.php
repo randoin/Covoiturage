@@ -2,7 +2,7 @@
 
 <h1>Etat des demandes de covoiturage</h1>
 <fieldset>
-		<table>
+		<table border=2 cellpadding=10>
 			<?php
 				$req = mysql_query("SELECT  `DATEDEPART` ,  `HEUREDEPART` ,  `IDENTIFIANTLIEU` ,  `IDENTIFIANTLIEU_ARRIVEE` ,  `VALIDE`  FROM  `demandercovoiturage` 
 					JOIN covoiturage
