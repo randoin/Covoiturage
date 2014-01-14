@@ -10,9 +10,10 @@
 			<h1>Accueil</h1>
 			<fieldset>
 				<?php include("connexion.php"); ?>
-				<a href="inscription.php"><input type="button" value="pas encore inscrit ?"></a><br>
+				<a href="inscription.php"><input type="button" value="Pas encore inscrit ?"></a><br>
 			</fieldset>
 		<?php if(isset($_SESSION['id'])) echo "-->"; else echo "<!--"?>
+			<h1>Accueil</h1>
 			<fieldset>
 			<p>
 			<?php 
