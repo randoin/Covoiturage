@@ -40,7 +40,7 @@
 			?>
 		</table>
 	</form>
-	<a href='index.php'><input type='button' value="retour a l'acceuil"></a>
+	<a href='index.php'><input type='button' value="Retour a l'accueil"></a>
 </fieldset>
 
 
