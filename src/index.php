@@ -27,7 +27,8 @@
 			</p>
 			<a href="recherche.php"><input type="button" value="Rechercher un covoiturage"></a><br>
 			<a href="proposition.php"><input type="button" value="Proposer un covoiturage"></a><br>
-			<a href="valider.php"><input type="button" value="Valider une demande de covoiturage"></a>
+			<a href="valider.php"><input type="button" value="Valider une demande de covoiturage"></a><br>
+			<a href="declarerCode.php.php"><input type="button" value="Voir les co-voiturages effectués"></a><br>	
 			<form action='index.php' method='post'>
 				<input type="submit" name="deco" value="se déconnecter">
 			</form>
