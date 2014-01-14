@@ -13,9 +13,21 @@
 		$code .= substr($caracteres, rand() % (strlen($caracteres)), 1);
 	}
 
-	echo '<center>Votre code passager à fournir au conducteur une fois le trajet effectué: '.$code;
-	echo '<br><br>';
-	echo ' <a href="index.php">Retour à l\'accueil</a></center>';
+	$requete = "INSERT INTO etrepassager VALUES()"
+ ?>
 
+ 	<fieldset>
+		<center>
+			<p>
+				Votre code passager à fournir au conducteur une fois le trajet effectué:
+			</p>
+			<br>
+			<?php echo $code; ?>
+			<br><br>
+			<a href="index.php">Retour à l'accueil</a>
+		</center>
+	</fieldset>
+
+<?php
 	include_once('footer.php');
  ?>
