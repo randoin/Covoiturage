@@ -1,11 +1,3 @@
-drop table covoiturage;
-drop table demandercovoiturage;
-drop table etape;
-drop table etrepassager;
-drop table lieu;
-drop table utilisateur;
-drop table vehicule;
-
 create table covoiturage (
   `NUMEROCOVOIT` int(100) NOT NULL,
   `CONDUCTEUR` INT( 5 ) NOT NULL,
