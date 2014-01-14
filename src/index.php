@@ -1,8 +1,7 @@
-<?php session_start(); ?>
-
 <?php 
+	session_start();
+
 	include("header.php");
-	include("base.php");
  ?>
 
 		<?php if(isset($_POST['deco'])){session_destroy(); header("location:index.php");}?>
@@ -16,13 +15,7 @@
 			<fieldset>
 			<p>
 			<?php 
-				if(isset($_SESSION['id'])){
-					$requete = "SELECT NOM, PRENOM FROM utilisateur WHERE ADRESSEMAIL = '".$_SESSION["id"]."'";
-					$exec = mysql_query($requete) or die('Erreur SQL: '.$requete.' --- '.mysql_error());
-					while($data = mysql_fetch_array($exec)){
-						echo "Bonjour ". ucfirst($data['NOM'])." ".ucfirst($data['PRENOM']).", soyez le bienvenu sur Eco'voiturage !<br/><br/>Choisissez une action à effectuer ci-dessous :";
-					}
-				}
+				echo "Bonjour ".ucfirst($_SESSION['prenom'])." ".ucfirst($_SESSION['nom']).", soyez le bienvenu sur Eco'voiturage !<br/><br/>Choisissez une action à effectuer ci-dessous :";
 			?>
 			</p>
 			<b>Si vous êtes passager :</b><br/>

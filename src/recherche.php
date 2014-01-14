@@ -29,6 +29,9 @@ if(isset($_POST['depart'])){
 		$req .= $arrivee;
 		$req .= "'";
 		$exec = mysql_query($req) or die('Erreur SQL: '.$req.' --- '.mysql_error());
+ ?>
+<form action="traitement_recherche.php" method="post">
+<?php 
 		while ($data = mysql_fetch_array($exec)){
 			
 			echo "<br><fieldset>";
@@ -46,6 +49,8 @@ if(isset($_POST['depart'])){
 }
 
 ?>
+
+</form>
 
 <?php include "footer.php" ?>
 
