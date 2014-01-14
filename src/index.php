@@ -24,6 +24,7 @@
 			<a href="recherche.php"><input type="button" value="Rechercher un covoiturage"></a><br/>
 			<a href="liste_recherche.php"><input type="button" value="Voir vos recherches de covoiturage"></a><br/>
 			<a href="liste_valide.php"><input type="button" value="Voir vos demandes de covoiturage"></a><br/><br/>
+			<a href="signalerRetard.php"><input type="button" value="Signaler une absence à un covoiturage"></a><br/><br/>
 			<b>Vous êtes conducteur :</b><br/>
 			<a href="proposition.php"><input type="button" value="Proposer un covoiturage"></a><br/>
 			<a href="valider.php"><input type="button" value="Valider une demande de covoiturage"></a><br/>
