@@ -12,10 +12,9 @@
 		$( "#date" ).datepicker();
 	});
 </script>
-
+<h1>Recherche de covoiturage</h1>
 <fieldset>
 <form action='recherche.php' method='post'>
-<legend>Recherche de co-voiturage</legend>
 <p>Ville de départ : <input type='text' placeholder='Ville de départ' name='depart'></p>
 <p>Ville d'arrivée : <input type='text' placeholder="Ville d'arrivée" name='arrivee'></p>
 <p>Jour du trajet : <input type='text' placeholder="JJ/MM/AAAA" name='date' id="date"></p>
