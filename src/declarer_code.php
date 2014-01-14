@@ -48,6 +48,7 @@
 							?>
 						
 					</table>
+					<a href='index.php'><input type='button' value="Retour a l'accueil"></a>
 				</div>
 			</fieldset>
 			

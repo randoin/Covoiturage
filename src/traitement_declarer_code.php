@@ -5,4 +5,6 @@
 	echo $requete;
 	mysql_query($requete);
 	mysql_close();
+
+	header("Location:declarer_code.php");
  ?>
