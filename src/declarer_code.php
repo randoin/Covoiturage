@@ -33,8 +33,8 @@
 
 							while ($data = mysql_fetch_array($exec)){
 								echo "<tr>";
-								echo "<td>".$data['IDENTIFIANTLIEU_ARRIVEE']."</td>";
 								echo "<td>".$data['IDENTIFIANTLIEU']."</td>";
+								echo "<td>".$data['IDENTIFIANTLIEU_ARRIVEE']."</td>";
 								echo "<td>".date("d/m/Y",strtotime($data['DATEDEPART']))."</td>";
 								echo "<td>";
 									echo "<input type='text' name='code' size=16 maxlength=30 value='' placeholder='Entrez un code'";
