@@ -5,7 +5,6 @@
 		document.forms['form'].elements['depart'].value = depart;
 		document.forms['form'].elements['arrivee'].value = arrivee;
 		document.forms['form'].elements['date'].value = date;
-		alert(depart);
 	}
 </script>
 
