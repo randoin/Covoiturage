@@ -27,8 +27,6 @@
 					
 					if($erreur != 1){
 						//requete insertion
-						session_start();
-
 						include('base.php');
 
 						$sql = 'SELECT max(NUMEROCOVOIT) as "MAXI" FROM covoiturage';
