@@ -22,7 +22,7 @@
 			</p>
 			<b>Vous êtes passager :</b><br/>
 			<a href="recherche.php"><input type="button" value="Rechercher un covoiturage"></a><br/>
-			<a href="liste_recherche.php"><input type="button" value="Voir mes recherches de covoiturage"></a><br/>
+			<a href="liste_recherche.php"><input type="button" value="Voir vos recherches de covoiturage"></a><br/>
 			<a href="liste_valide.php"><input type="button" value="Voir vos demandes de covoiturage"></a><br/><br/>
 			<b>Vous êtes conducteur :</b><br/>
 			<a href="proposition.php"><input type="button" value="Proposer un covoiturage"></a><br/>
