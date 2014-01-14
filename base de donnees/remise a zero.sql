@@ -8,7 +8,8 @@ drop table vehicule;
 DROP TABLE `cherchercovoit`;
 
 CREATE TABLE `cherchercovoit` (
-  `NUMERODEMANDE` int(5) NOT NULL,
+  `NUMERODEMANDE` int(5) PRIMARY KEY,
+  `MATRICULE` int(5) NOT NULL,
   `IDENTIFIANTLIEU` int(5) NOT NULL,
   `IDENTIFIANTLIEU_ARRIVEE` int(5) NOT NULL,
   `DATEDEPART` date NOT NULL,
