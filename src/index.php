@@ -7,6 +7,7 @@
 		<?php if(isset($_POST['deco'])){session_destroy(); header("location:index.php");}?>
 		
 		<?php if(isset($_SESSION['id'])) echo "<!--";?>
+			<h1>Accueil</h1>
 			<fieldset>
 				<?php include("connexion.php"); ?>
 				<a href="inscription.php"><input type="button" value="pas encore inscrit ?"></a><br>
