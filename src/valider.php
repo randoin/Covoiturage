@@ -23,23 +23,24 @@
 		<input type="hidden" name="covoit">
 		<input type="hidden" name="demande">
 		<table>
-			<tr><td>Covoiturage</td><td>Demandeur</td><td>@mail</td><td></td><td></td></tr>
 			<?php
 				$req = mysql_query('SELECT `IDENTIFIANTLIEU`,`IDENTIFIANTLIEU_ARRIVEE`,`DATEDEPART`,`NOM`,`PRENOM`,`ADRESSEMAIL`,NUMEROCOVOIT,`MATRICULE` FROM `covoiturage` 
 				JOIN `demandercovoiturage` using(`NUMEROCOVOIT`) 
 				JOIN `utilisateur` using(`MATRICULE`) 
 				WHERE `CONDUCTEUR` = (select `MATRICULE` from utilisateur where `ADRESSEMAIL` = \''.$_SESSION['id'].'\') and valide = 0');
 				if(mysql_num_rows($req) > 0)
+				        echo "<tr><td>Covoiturage</td><td>Demandeur</td><td>@mail</td><td></td><td></td></tr>";
 					while ($row = mysql_fetch_array($req)){
 						echo "<tr><td>de ".$row['IDENTIFIANTLIEU']." a ".$row['IDENTIFIANTLIEU_ARRIVEE']." le ".$row['DATEDEPART']."</td><td>".
 						$row['NOM']." ".$row['PRENOM']."</td><td>".$row['ADRESSEMAIL'].'</td><td><input type="submit" value="accepter" name="a" onclick="set('.$row['NUMEROCOVOIT'].','.$row['MATRICULE'].');"></td><td><input type="submit" value="refuser" name="r" onclick="set('.$row['NUMEROCOVOIT'].','.$row['MATRICULE'].');">
 						';
 					}
 				else
-					echo "<tr><td>aucune demande en attente de validation</td></tr>";
+					echo "<tr><td>Aucune demande en attente de validation.</td></tr>";
 			?>
 		</table>
 	</form>
+	<br/>
 	<a href='index.php'><input type='button' value="Retour a l'accueil"></a>
 </fieldset>
 
