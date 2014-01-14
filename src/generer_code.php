@@ -4,6 +4,7 @@
 	echo '<meta charset="UTF-8" />';
 
 	include_once('header.php');
+	include('base.php');
 
 	$caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 	$caracteres .= '1234567890';
