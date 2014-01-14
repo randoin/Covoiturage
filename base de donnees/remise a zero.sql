@@ -5,6 +5,15 @@ drop table etrepassager;
 drop table lieu;
 drop table utilisateur;
 drop table vehicule;
+DROP TABLE `cherchercovoit`;
+
+CREATE TABLE `cherchercovoit` (
+  `NUMERODEMANDE` int(5) NOT NULL,
+  `IDENTIFIANTLIEU` int(5) NOT NULL,
+  `IDENTIFIANTLIEU_ARRIVEE` int(5) NOT NULL,
+  `DATEDEPART` date NOT NULL,
+  PRIMARY KEY (`NUMERODEMANDE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 create table covoiturage (
   `NUMEROCOVOIT` int(100) NOT NULL,
