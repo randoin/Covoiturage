@@ -1,3 +1,5 @@
+<?php include("header.php"); ?>	
+<meta charset="UTF-8">
 	<div class="comuto_post-content"><p><h1>
 	Conditions g&eacute;n&eacute;rales d&#39;utilisation</h1>
 <p>
@@ -451,3 +453,4 @@
 	Aucun utilisateur du site ne peut y publier des informations diffamantes, injurieuses ou portant atteinte &agrave; des tiers. Comuto supprimera d&egrave;s en avoir pris connaissance toute information contraire &agrave; son &eacute;thique. Conducteurs et Passagers acceptent par avance que les avis les concernant puissent &ecirc;tre publi&eacute;s sur le Site. Ils acceptent par ailleurs que leur niveau d&#39;exp&eacute;rience soit calcul&eacute; et publi&eacute; en fonction des crit&egrave;res d&eacute;cid&eacute;s par Comuto.<br />
 	<br />
 	***************** Fin des Conditions G&eacute;n&eacute;rales d&#39;Utilisation ******************</p></p></div>
+<?php include("footer.php"); ?>	
