@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php include("header.php") ?>
 <?php include("base.php") ?>
 
@@ -15,17 +16,23 @@
 <h1>Recherche de covoiturage</h1>
 <fieldset>
 <form action='recherche.php' method='post'>
-<p>Ville de départ : <input type='text' placeholder='Ville de départ' name='depart'></p>
-<p>Ville d'arrivée : <input type='text' placeholder="Ville d'arrivée" name='arrivee'></p>
-<p>Jour du trajet : <input type='text' placeholder="JJ/MM/AAAA" name='date' id="date"></p>
+<p>Ville de départ : <input type='text' placeholder='Ville de départ' value="<?php if(isset($depart)) echo $depart; ?>" name='depart'></p>
+<p>Ville d'arrivée : <input type='text' placeholder="Ville d'arrivée" value="<?php if(isset($arrivee)) echo $arrivee; ?>" name='arrivee'></p>
+<p>Jour du trajet : <input type='text' placeholder="JJ/MM/AAAA" value="<?php if(isset($date)) echo $date; ?>" name='date' id="date"></p>
 <input type="submit" value="Valider" />
 
 </form>
 
 </fieldset>
 
-<form action="traitement_recherche.php" method="post">
+
 <?php
+
+
+
+
+?><form action="traitement_recherche.php" method="post"><?php
+
 if(isset($_POST['depart'])){
 	if(isset($_POST['arrivee'])){
 	if(isset($_POST['date'])){
@@ -58,8 +65,15 @@ if(isset($_POST['depart'])){
 			echo "Choisir : <input type='radio' name='select' value='".$data['NUMEROCOVOIT']."'/></br>";
 			echo "</fieldset>";
 			}
+			
 		if($nbr>0){echo "</br><input type='submit' value='Valider votre choix' name='validerCov'/>";}
-		if($nbr==0){echo "Aucun covoiturage trouvé !";}
+		if($nbr==0){echo "Aucun covoiturage trouvé !";
+					echo "<input type='hidden' value='".$depart."' name='depart'/>";
+					echo "<input type='hidden' value='".$arrivee."' name='arrivee'/>";
+					echo "<input type='hidden' value='".$date."' name='date'/>";
+
+		?><br><input type="submit" name="Ajouter" value="Créer une demande"><?php
+		}
 		echo "</fieldset>";
 		}
 	}
