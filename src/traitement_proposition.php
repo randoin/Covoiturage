@@ -21,7 +21,11 @@
 			//on analyse l'enregistrement
 			if(isset($_POST['Ajouter'])){
 				//on test si les champs ont bien été rempli
+<<<<<<< HEAD
+				if($_POST['depart'] != "" && $_POST['arrivee'] != "" && $_POST['dateDepart']!= "" && $_POST['heureDepart'] !="" && $_POST['minutesDepart'] !="" && $_POST['nbPlace'] != "" && $_POST['prix'] != "" && $_POST['plaque']){
+=======
 				if($_POST['depart'] != "" && $_POST['arrivee'] != "" && $_POST['dateDepart'] != "" && $_POST['nbPlace'] != "" && $_POST['prix'] != "" && $_POST['plaque']){
+>>>>>>> 4ad7c16cd7d61c59cf9f45b8f99fd511ceb93ff5
 					//analyse de ce qui est envoyer
 					
 					
@@ -42,9 +46,14 @@
 						$nbPlace = $_POST['nbPlace'];
 						$prix = $_POST['prix'];
 						$dateCo = date("Y-m-d", strtotime($_POST['dateDepart']));
+						$horraire=$_POST['heureDepart'].'h'.$_POST['minutesDepart'];
 
 						//insertion
+<<<<<<< HEAD
+						$sql = "INSERT INTO covoiturage(NUMEROCOVOIT,IDENTIFIANTLIEU,IDENTIFIANTLIEU_ARRIVEE,DATEDEPART,HEUREDEPART,PLACESDISPO,MONTANT,PLAQUEIMMATRICULATION) VALUES ($matr, '".$_POST['depart']."', '".$_POST['arrivee']."','".$dateCo."','".$horraire."',$nbPlace, $prix,'".$_POST['plaque']."')";
+=======
 						$sql = "INSERT INTO covoiturage(NUMEROCOVOIT,CONDUCTEUR, IDENTIFIANTLIEU,IDENTIFIANTLIEU_ARRIVEE,DATEDEPART,PLACESDISPO,MONTANT,PLAQUEIMMATRICULATION) VALUES ($matr,'".$_SESSION['matricule']."','".$_POST['depart']."', '".$_POST['arrivee']."','".$dateCo."' ,$nbPlace, $prix,'".$_POST['plaque']."')";
+>>>>>>> 4ad7c16cd7d61c59cf9f45b8f99fd511ceb93ff5
 						//echo $sql;
 						mysql_query($sql) or die('Erreur SQL: '.$sql.' --- '.mysql_error());
 						//values($numCoureur,'".$nom."','".$prenom."','".$_POST['annee_naissance']."','".$_POST['annee_tour']."','".$_POST['pays']."',user, sysdate)";

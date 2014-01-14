@@ -75,7 +75,44 @@
 								Heure de départ * :
 							</td>
 							<td>
-								<input type="text" name="heureDepart" value="<?php if(isset($valeurHeure)) echo $valeurHeure; ?>" placeholder="exemple : 17h30"></p>
+								<select name="heureDepart">
+									<option value="" >heure</option>
+									<option value="00" >00</option>
+									<option value="01" >01</option>
+									<option value="02" >02</option>
+									<option value="03" >03</option>
+									<option value="04" >04</option>
+									<option value="05" >05</option>
+									<option value="06" >06</option>
+									<option value="07" >07</option>
+									<option value="08" >08</option>
+									<option value="09" >09</option>
+									<?php
+									for ($i=10;$i<24;$i++)
+									{
+										echo '<option value="' .$i.'">' .$i.'</option>';
+									}
+									?>
+								</select>
+								<select name="minutesDepart">
+									<option value="" >minutes</option>
+									<option value="00" >00</option>
+									<option value="01" >01</option>
+									<option value="02" >02</option>
+									<option value="03" >03</option>
+									<option value="04" >04</option>
+									<option value="05" >05</option>
+									<option value="06" >06</option>
+									<option value="07" >07</option>
+									<option value="08" >08</option>
+									<option value="09" >09</option>
+									<?php
+									for ($i=10;$i<60;$i++)
+									{
+										echo '<option value="' .$i.'">' .$i.'</option>';
+									}
+									?>
+								</select>	
 							</td>
 							<td>
 								<?php echo $valeurTestHeure; ?>
