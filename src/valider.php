@@ -15,9 +15,9 @@
 		document.forms['form'].elements['demande'].value = demande;
 	}
 </script>
-
+<h1>Liste des demandes de covoiturage</h1>
 <fieldset>
-	<label>Liste des demandes de covoiturage</label>
+	
 	
 	<form action='valider.php' method='post' name='form'>
 		<input type="hidden" name="covoit">
