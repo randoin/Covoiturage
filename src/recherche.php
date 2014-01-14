@@ -46,8 +46,9 @@ if(isset($_POST['depart'])){
 		$req .= $date;
 		$req .= "'";
 		$exec = mysql_query($req) or die('Erreur SQL: '.$req.' --- '.mysql_error());
-		echo "<fieldset>Veuillez cocher le covoiturage souhaité :";
-		$tmp= 0;
+		$nbr= mysql_num_rows($exec);
+		echo "<fieldset>";
+		if($nbr > 0) echo "Veuillez cocher le covoiturage souhaité :<br/><br/>";
 		while ($data = mysql_fetch_array($exec)){
 			echo "<fieldset>";
 			echo "Ce covoiturage est proposé par ".$data['PRENOM']." ".$data['NOM']." le ".$data['DATEDEPART'].".</br>";
@@ -56,10 +57,9 @@ if(isset($_POST['depart'])){
 			echo "Il reste ".$data['PLACESDISPO']." places disponibles.<br>";
 			echo "Choisir : <input type='radio' name='select' value='".$data['NUMEROCOVOIT']."'/></br>";
 			echo "</fieldset>";
-			$tmp++;
 			}
-		if($tmp>0){echo "</br><input type='submit' value='Valider votre choix' name='validerCov'/>";}
-		if($tmp==0){echo "Aucun covoiturage trouvé !";}
+		if($nbr>0){echo "</br><input type='submit' value='Valider votre choix' name='validerCov'/>";}
+		if($nbr==0){echo "Aucun covoiturage trouvé !";}
 		echo "</fieldset>";
 		}
 	}
