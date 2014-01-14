@@ -7,6 +7,8 @@
 				$valeurTestArrivee = "";
 			if(!isset($valeurTestDate))
 				$valeurTestDate = "";
+			if(!isset($valeurTestHeure))
+				$valeurTestHeure = "";
 			if(!isset($valeurTestNbPlace))
 				$valeurTestNbPlace = "";
 			if(!isset($valeurTestPrix))
@@ -44,17 +46,43 @@
 								<?php echo $valeurTestArrivee; ?>
 							</td>
 						</tr>
+
+
+						
+
 						<tr>
+							<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+							<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+							<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+							<link rel="stylesheet" href="/resources/demos/style.css">
+							<script>
+								$(function() {
+									$( "#dateDepart" ).datepicker();
+								});
+							</script>
+
 							<td>
 								Date de départ * :
 							</td>
 							<td>
-								<input type="text" name="dateDepart" value="<?php if(isset($valeurDate)) echo $valeurDate; ?>" placeholder="jj/mm/aaaa">
+								<input type="text" id="dateDepart" name="dateDepart" value="<?php if(isset($valeurDateDepart)) echo $valeurDateDepart; ?>"></p>
 							</td>
 							<td>
 								<?php echo $valeurTestDate; ?>
 							</td>
 						</tr>
+						<td>
+								Heure de départ * :
+							</td>
+							<td>
+								<input type="text" name="heureDepart" value="<?php if(isset($valeurHeure)) echo $valeurHeure; ?>" placeholder="exemple : 17h30"></p>
+							</td>
+							<td>
+								<?php echo $valeurTestHeure; ?>
+							</td>
+						</tr>
+
+
 						<tr>
 							<td>
 								Plaque d'immatriculation * :

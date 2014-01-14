@@ -7,6 +7,8 @@
 				$valeurTestArrivee = "";
 			if(!isset($valeurTestDate))
 				$valeurTestDate = "";
+			if(!isset($valeurTestHeure))
+				$valeurTestHeure = "";
 			if(!isset($valeurTestNbPlace))
 				$valeurTestNbPlace = "";
 			if(!isset($valeurTestPrix))
@@ -20,7 +22,7 @@
 			//on analyse l'enregistrement
 			if(isset($_POST['Ajouter'])){
 				//on test si les champs ont bien été rempli
-				if($_POST['depart'] != "" && $_POST['arrivee'] != "" && $_POST['dateDepart'] != "" && $_POST['nbPlace'] != "" && $_POST['prix'] != "" && $_POST['plaque']){
+				if($_POST['depart'] != "" && $_POST['arrivee'] != "" && $_POST['dateDepart']!= "" && $_POST['heureDepart'] !="" && $_POST['nbPlace'] != "" && $_POST['prix'] != "" && $_POST['plaque']){
 					//analyse de ce qui est envoyer
 					
 					
@@ -43,14 +45,14 @@
 						$dateCo = date("Y-m-d", strtotime($_POST['dateDepart']));
 
 						//insertion
-						$sql = "INSERT INTO covoiturage(NUMEROCOVOIT,IDENTIFIANTLIEU,IDENTIFIANTLIEU_ARRIVEE,DATEDEPART,PLACESDISPO,MONTANT,PLAQUEIMMATRICULATION) VALUES ($matr, '".$_POST['depart']."', '".$_POST['arrivee']."','".$dateCo."' ,$nbPlace, $prix,'".$_POST['plaque']."')";
+						$sql = "INSERT INTO covoiturage(NUMEROCOVOIT,IDENTIFIANTLIEU,IDENTIFIANTLIEU_ARRIVEE,DATEDEPART,HEUREDEPART,PLACESDISPO,MONTANT,PLAQUEIMMATRICULATION) VALUES ($matr, '".$_POST['depart']."', '".$_POST['arrivee']."','".$dateCo."','".$_POST['heureDepart']."',$nbPlace, $prix,'".$_POST['plaque']."')";
 						//echo $sql;
 						mysql_query($sql) or die('Erreur SQL: '.$sql.' --- '.mysql_error());
 						//values($numCoureur,'".$nom."','".$prenom."','".$_POST['annee_naissance']."','".$_POST['annee_tour']."','".$_POST['pays']."',user, sysdate)";
 
 
 						mysql_close();
-						header("Location:index.php");
+						include ("index.php");
 						
 						
 					}
@@ -77,6 +79,12 @@
 					else{
 						$valeurDate = $_POST['dateDepart'];
 					}
+					if(empty($_POST['heureDepart'])){
+						$valeurTestHeure="veuillez entrer une heure de départ !";
+					}
+					else{
+						$valeurHeure=$_POST['heureDepart'];
+					}
 
 					if(empty($_POST['plaque'])){
 						$valeurTestPlaque = "Veuillez entrer une plaque d'immatriculation !";
@@ -99,7 +107,7 @@
 						$valeurPrix = $_POST['prix'];
 					}
 					
-					header("Location:proposition.php");
+					include ("proposition.php");
 				}
 			}
 
