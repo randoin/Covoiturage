@@ -1,10 +1,10 @@
 <?php 
 	include_once('header.php');
  ?>
-
+<h1>Paiement</h1>
 <fieldset>
 	<p>
-		Merci d'entrer vos coordonnées bancaires, vous serez débité à l'entrée du code par le conducteur :
+		Merci d'entrer vos coordonnées bancaires, vous serez débité à l'entrée du code par le conducteur:
 	</p>
 	<form action="traitement_payer.php" method="post" enctype="application/x-www-form-urlencoded">
 		<input type="text" name="num" placeholder="Numéro de carte">
